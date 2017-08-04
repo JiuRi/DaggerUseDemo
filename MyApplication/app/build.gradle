@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-
+//Buttferknife
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
@@ -17,6 +18,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        // rxjava  2.0.1 和 1.1.1冲突.
+        exclude 'META-INF/rxjava.properties'
+    }
 }
 
 dependencies {
@@ -27,6 +32,27 @@ dependencies {
      */
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    //ButtferKnife
+    compile 'com.jakewharton:butterknife:8.7.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
 
+    compile'com.squareup.retrofit2:retrofit:2.0.2'
+
+
+
+    //retrofit 字符串解析依赖
+
+   compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    //支持rxjava的 observer 回调
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    // 线程切换的时候用到的 线程调度 AndroidSchedulers.mainThread()
+    compile 'io.reactivex:rxandroid:1.0.1'
+
+    //RxJava
+    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    //RxAndroid的依赖包
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    //okhttp 3 日志拦截器
+    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
 
 }
