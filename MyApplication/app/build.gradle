@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 //Buttferknife
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.neenbedankt.android-apt'
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
@@ -21,6 +23,8 @@ android {
     packagingOptions {
         // rxjava  2.0.1 和 1.1.1冲突.
         exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+
     }
 }
 
@@ -32,16 +36,14 @@ dependencies {
      */
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    //ButtferKnife
-    compile 'com.jakewharton:butterknife:8.7.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+    //ButtferKnife (高版本的ButtferKnife 会和 dagger2 发生冲突 ,导致编译正常 ,运行时 bindview() 所绑定的view 报空)
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
 
     compile'com.squareup.retrofit2:retrofit:2.0.2'
 
 
-
     //retrofit 字符串解析依赖
-
    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
     //支持rxjava的 observer 回调
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
@@ -54,5 +56,11 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     //okhttp 3 日志拦截器
     compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    // dagger2
+    apt 'com.google.dagger:dagger-compiler:2.8'
+    compile 'com.google.dagger:dagger:2.8'
+    provided 'javax.annotation:jsr250-api:1.0'
 
+    //logger
+    compile 'com.orhanobut:logger:2.1.1'
 }

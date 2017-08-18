@@ -13,11 +13,13 @@ public class App extends Application {
 
     public static Context mApplicationContext;
 
+
     @Override
     public void onCreate() {
         super.onCreate();
         mApplicationContext = getApplicationContext();
         ToastUtil.init(this);
+
     }
 
     /**
@@ -27,4 +29,5 @@ public class App extends Application {
     public static Context getAppContext() {
         return mApplicationContext;
     }
+
 }
