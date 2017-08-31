@@ -3,8 +3,8 @@ package jiuri.com.dagger2demo.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 
 import jiuri.com.dagger2demo.R;
 
@@ -15,20 +15,37 @@ import jiuri.com.dagger2demo.R;
 public class Activity2 extends AppCompatActivity {
     private MyView mChecke;
     private Button mButton;
+    private SeekBar mSeekbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two);
-        mChecke = (MyView) findViewById(R.id.checke);
+        initView();
+        initListener();
+    }
 
-        mButton = (Button) findViewById(R.id.button);
-        mButton.setOnClickListener(new View.OnClickListener() {
+    private void initListener() {
+        mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onClick(View v) {
-                mChecke.check();
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
+    }
 
+    private void initView() {
+        mChecke = (MyView) findViewById(R.id.checke);
+        mSeekbar = (SeekBar) findViewById(R.id.seekbar);
     }
 }

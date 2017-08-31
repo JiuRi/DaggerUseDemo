@@ -1,6 +1,7 @@
 package jiuri.com.dagger2demo.retrofit;
 
 
+import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -17,4 +18,10 @@ public interface ApiService {
     Observable<String> getTianQi(@Query("city")String city);
     @GET("aaaa/city={city}")
     Observable<String> getDate(@Path("city") String city);
+    //http://mobilenews.mingpao.com/dat/MobileINews3Test/latest/category_content/category_tc.xml
+    @GET("dat/MobileINews3Test/latest/category_content/{end}")
+    Observable<String> getFengLei(@Path("end")String end);
+    //http://ovj11j8i9.bkt.clouddn.com/out.apatch
+    @GET("out.{name}")
+    Observable<ResponseBody> downLoad(@Path("name")String name);
 }

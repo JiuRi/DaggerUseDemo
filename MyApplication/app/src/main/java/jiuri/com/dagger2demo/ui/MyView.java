@@ -99,11 +99,11 @@ public class MyView extends View {
         canvas.drawBitmap(mBitmap,rect,dst,mPaint);*/
         mPaint.setColor(Color.YELLOW);
         canvas.drawLine(10,mHeight/2,mWidth,mHeight/2,mPaint);
+        mPaint.setColor(Color.BLUE);
+        canvas.drawRoundRect(10,mHeight/2-20,80,mHeight/2+20,8,8,mPaint);
         mPaint.setColor(Color.WHITE);
-        canvas.drawRect(10,mHeight/2-20,80,mHeight/2+20,mPaint);
-        mPaint.setColor(Color.BLACK);
         mPaint.setTextSize(13);
-        canvas.drawText("0%",10,mHeight/2,mPaint);
+        canvas.drawText("0%",35,mHeight/2,mPaint);
 
     }
     public void check(){

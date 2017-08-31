@@ -6,10 +6,9 @@
 <jiuri.com.dagger2demo.ui.MyView
     android:id="@+id/checke"
     android:layout_width="match_parent"
-    android:layout_height="800dp"/>
-    <Button
-        android:text="跳转"
-        android:id="@+id/button"
+    android:layout_height="30dp"/>
+    <SeekBar
+        android:id="@+id/seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
