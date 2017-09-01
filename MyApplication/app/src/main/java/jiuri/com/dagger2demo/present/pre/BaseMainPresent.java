@@ -31,7 +31,8 @@ public abstract class BaseMainPresent implements MainPresent {
     public abstract  void  loadData(String s);
     public void ondestory(){
         Logger.addLogAdapter(new LoggerAdapter());
-        mCompositeSubscription.unsubscribe();
+        if (mCompositeSubscription!=null){
+        mCompositeSubscription.unsubscribe();}
         Logger.d("已经解除绑定");
     }
 }

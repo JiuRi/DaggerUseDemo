@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>交互Demo</title>
+<meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport">
+<style>
+body{width:100%;height:auto;text-align:center;background-color:#eee}
+button{width:80%;height:40px;background-color:#36A803;border:1px solid #ddd;border-radius:5px;font-size:18px;color:#fff;margin-top:50px;}
+</style>
+</head>
+<body>
+<div id="userinfo"></div>
+<button onClick="toActivity(1);">跳转</button>
+<button onClick="showToast('我是来自Html网页的');">显示时间</button>
+<button id="videoBtn" type="button">播放</button>
+
+
+<script>
+function toActivity(param){
+    //调用本地的类(js)的jumpActivity()方法;
+    window.jj.jumpActivity(param);
+	
+}
+function showToast(param){
+    //调用本地的类(js)的jumpActivity()方法;
+    window.jj.showToast(param);
+
+}
+function playVideo(){
+
+    var videoBtn = document.getElementById("videoBtn");
+
+
+        videoBtn.innerHTML="我被安卓调用了";
+
+}
+　　
+</script>
+</body>
+</html>

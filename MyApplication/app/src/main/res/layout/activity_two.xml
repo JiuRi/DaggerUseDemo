@@ -3,12 +3,20 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-<jiuri.com.dagger2demo.ui.MyView
-    android:id="@+id/checke"
-    android:layout_width="match_parent"
-    android:layout_height="30dp"/>
-    <SeekBar
-        android:id="@+id/seekbar"
+    <Button
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/button"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimaryDark"
+        android:text="调用Html5 里面的方法"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="40dp"/>
+<WebView
+    android:background="@android:color/white"
+    android:id="@+id/webView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></WebView>
 </LinearLayout>
