@@ -1,10 +1,13 @@
 package jiuri.com.dagger2demo.retrofit;
 
 
+import jiuri.com.dagger2demo.retrofit.RetrofitDownLoadFile.FileResponseBody;
 import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.Streaming;
 import rx.Observable;
 
 /**
@@ -22,6 +25,13 @@ public interface ApiService {
     @GET("dat/MobileINews3Test/latest/category_content/{end}")
     Observable<String> getFengLei(@Path("end")String end);
     //http://ovj11j8i9.bkt.clouddn.com/out.apatch
-    @GET("out.{name}")
-    Observable<ResponseBody> downLoad(@Path("name")String name);
+    @GET("test.{name}")
+    Call<ResponseBody> downLoad(@Path("name")String name);
+    @GET("test.{name}")
+    Observable<ResponseBody> downLoadb(@Path("name")String name);
+    @Streaming
+    @GET("test.{name}")
+    Call<FileResponseBody> downLoada(@Path("name")String name);
+    @GET("weather_mini")
+    Call<ResponseBody> getTianQi1(@Query("city")String city);
 }

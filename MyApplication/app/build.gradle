@@ -26,6 +26,7 @@ android {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
 
     }
+
 }
 
 dependencies {
@@ -65,5 +66,6 @@ dependencies {
     compile 'com.orhanobut:logger:2.1.1'
 
     //compile 'com.alipay.euler:andfix:0.5.0@aar'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
 
 }
