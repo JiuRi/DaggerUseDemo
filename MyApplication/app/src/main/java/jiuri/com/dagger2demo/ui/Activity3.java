@@ -48,6 +48,8 @@ public class Activity3 extends AppCompatActivity {
     ProgressBar mProgress;
     @BindView(R.id.progress1)
     ProgressBar mProgress1;
+    @BindView(R.id.myview)
+    MyView mMyview;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -96,14 +98,21 @@ public class Activity3 extends AppCompatActivity {
                             }
 
                             @Override
-                            public void onLoading(long total, long progress) {
+                            public void onLoading(final long total, final long progress) {
                                 super.onLoading(total, progress);
                                 mProgress.setProgress((int) (progress * 100 / total));
+                           runOnUiThread(new Runnable() {
+                               @Override
+                               public void run() {
+                                   mMyview.check((int) (progress * 100 / total));
+                               }
+                           });
                                 Log.d(TAG, "onLoading: ________________" + total + "              " + progress);
                             }
                         };
                         Call<ResponseBody> call = RetrofitDownLoad.getRetrofitService(callback, ApiService.class).downLoad("zip");
                         call.enqueue(callback);
+;
                     }
                 }).start();
 
@@ -137,11 +146,16 @@ public class Activity3 extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onLoading(long total, long progress) {
+                    public void onLoading(final long total, final long progress) {
                         super.onLoading(total, progress);
 
                         mProgress1.setProgress((int) (progress * 100 / total));
-
+                      runOnUiThread(new Runnable() {
+                          @Override
+                          public void run() {
+                              mMyview.check((int) (progress * 100 / total));
+                          }
+                      });
                     }
                 };
                 Observable<ResponseBody> zip = RxRetrofitDownLoad.getRetrofitService(responseBodyRxRetrofitCallback, ApiService.class).downLoadb("zip").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());

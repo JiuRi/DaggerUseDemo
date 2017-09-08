@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
+
 import jiuri.com.dagger2demo.util.ToastUtil;
 
 /**
@@ -20,7 +23,7 @@ public class App extends Application {
         Log.e(TAG, "onCreate: _______________________启动-----------" );
         mApplicationContext = getApplicationContext();
         ToastUtil.init(this);
-
+        SpeechUtility.createUtility(this, SpeechConstant.APPID +"=59b21092");
 
 
     }

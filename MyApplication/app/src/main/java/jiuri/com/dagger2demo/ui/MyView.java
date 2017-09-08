@@ -26,6 +26,8 @@ public class MyView extends View {
     private Bitmap mBitmap;
     private int mWidth;
     private int mHeight;
+    private int start=0;
+
     private int i;
     private Handler mHandler;
 
@@ -39,6 +41,7 @@ public class MyView extends View {
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.check);
         mColor1 = Color.BLUE;
         mPaint = new Paint();
+
         mPaint.setColor(Color.YELLOW);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);//设置画笔为之描边 不填充  ，还可以设置为填充
         /**
@@ -56,6 +59,12 @@ public class MyView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         mWidth = w;
         mHeight = h;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -98,20 +107,20 @@ public class MyView extends View {
             //canvas.drawBitmap(mBitmap,new Matrix(),mPaint);
         canvas.drawBitmap(mBitmap,rect,dst,mPaint);*/
         mPaint.setColor(Color.YELLOW);
-        canvas.drawLine(10,mHeight/2,mWidth,mHeight/2,mPaint);
-        mPaint.setColor(Color.BLUE);
-        canvas.drawRoundRect(10,mHeight/2-20,80,mHeight/2+20,8,8,mPaint);
+        canvas.drawLine(80,mHeight/2,mWidth-80,mHeight/2,mPaint);
         mPaint.setColor(Color.WHITE);
-        mPaint.setTextSize(13);
-        canvas.drawText("0%",35,mHeight/2,mPaint);
+        int i = (mWidth - 20-85) / 100;
+            canvas.drawRoundRect(10+start*i,mHeight/2-50,150+start*i,mHeight/2-10,8,8,mPaint);
+
+        mPaint.setAntiAlias(true);
+        mPaint.setColor(Color.RED);
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setTextSize(18);
+        canvas.drawText("已下载: "+start+"%",10+start*i,mHeight/2+9-30,mPaint);
 
     }
-    public void check(){
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                invalidate();
-            }
-        },500);
+    public void check(int progress){
+            start =progress;
+        invalidate();
     }
 }

@@ -41,5 +41,10 @@
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <jiuri.com.dagger2demo.ui.MyView
+        android:id="@+id/myview"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
 
 </LinearLayout>
