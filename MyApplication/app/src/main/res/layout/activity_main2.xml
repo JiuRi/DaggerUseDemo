@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/btn"
+              android:orientation="vertical">
+<LinearLayout
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:orientation="vertical"
+    android:layout_marginTop="300dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        android:textColor="@android:color/white"
+        android:id="@+id/editext"
+        android:hint="请输入您的 ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/login"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="38dp"
+        android:text="登 陆"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btnback"/>
+
+    <Button
+        android:id="@+id/regist"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="38dp"
+        android:text="注 册"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btnback"/>
+</LinearLayout>
+</LinearLayout>

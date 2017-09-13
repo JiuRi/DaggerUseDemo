@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <SurfaceView
+        android:id="@+id/sfv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btnback"
+            android:textColor="@android:color/white"
+            android:text="开始验证"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <View
+        android:id="@+id/line"
+        android:background="@android:color/holo_green_light"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+</RelativeLayout>

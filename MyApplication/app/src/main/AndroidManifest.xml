@@ -48,15 +48,21 @@
 
         </activity>
         <activity android:name=".ui.FaceActivity">
+
+        </activity>
+        <activity android:name=".ui.OfflineFaceDemo"/>
+        <activity android:name=".ui.OnlineFaceDemo"/>
+        <activity android:name=".ui.VideoDemo"/>
+        <activity android:name=".ui.LoginActivity">
+
+        </activity>
+        <activity android:name=".ui.MainActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.OfflineFaceDemo"/>
-        <activity android:name=".ui.OnlineFaceDemo"/>
-        <activity android:name=".ui.VideoDemo"/>
     </application>
 
 </manifest>

@@ -4,6 +4,8 @@ import android.Manifest.permission;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
@@ -24,6 +26,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
@@ -67,7 +70,8 @@ public class VideoDemo extends Activity {
 	private Toast mToast;
 	private long mLastClickTime;
 	private int isAlign = 0;
-	
+	private ImageView mImageView;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -123,6 +127,7 @@ public class VideoDemo extends Activity {
 	private void initUI() {
 		mPreviewSurface = (SurfaceView) findViewById(R.id.sfv_preview);
 		mFaceSurface = (SurfaceView) findViewById(R.id.sfv_face);
+		mImageView = (ImageView) findViewById(R.id.image);
 
 		mPreviewSurface.getHolder().addCallback(mPreviewCallback);
 		mPreviewSurface.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -316,13 +321,27 @@ public class VideoDemo extends Activity {
 					}
 
 					String result = mFaceDetector.trackNV21(buffer, PREVIEW_WIDTH, PREVIEW_HEIGHT, isAlign, direction);
-					Log.e(TAG, "result:"+result);
+					Log.d(TAG, "result:"+result);
 					Gson gson =new Gson();
 					FaceBeanBean faceBeanBean = gson.fromJson(result, FaceBeanBean.class);
 					if (faceBeanBean.getFace()!=null&&faceBeanBean.getFace().size()>0) {
 						Log.e(TAG, "run: _________________________________有人脸 显示" );
-					}
+						mCamera.takePicture(null, null, new Camera.PictureCallback() {
+							@Override
+							public void onPictureTaken(byte[] data, Camera camera) {
 
+								Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+
+								bitmap = FaceUtil.rotateImage(270, bitmap);
+
+
+								mImageView.setImageBitmap(bitmap);
+								mImageView.setVisibility(View.VISIBLE);
+
+							}
+						});
+					mAcc.stop();
+					}
 					FaceRect[] faces = ParseResult.parseResult(result);
 
 					Canvas canvas = mFaceSurface.getHolder().lockCanvas();
