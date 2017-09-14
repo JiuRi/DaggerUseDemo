@@ -36,7 +36,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.0'
     /**
      *   下面这个依赖 是 手动布局的 依赖 ConstraintLayout 这个布局管理器的 依赖.
      */
@@ -67,4 +67,5 @@ dependencies {
     //compile 'com.alipay.euler:andfix:0.5.0@aar'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile files('libs/Msc.jar')
+    compile 'com.android.support:design:24.0.0'
 }

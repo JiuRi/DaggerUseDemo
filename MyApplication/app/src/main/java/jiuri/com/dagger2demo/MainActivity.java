@@ -1,20 +1,14 @@
 package jiuri.com.dagger2demo;
 
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
-import butterknife.OnClick;
-import jiuri.com.dagger2demo.dagger2.DaggerMainComponent;
-import jiuri.com.dagger2demo.dagger2.MainModel;
-import jiuri.com.dagger2demo.present.impl.ImplMainPresent;
+import butterknife.ButterKnife;
+import jiuri.com.dagger2demo.adapter.MainPagerAdapter;
 import jiuri.com.dagger2demo.weiget.BaseActivity;
 import jiuri.com.dagger2demo.weiget.MainView;
 
@@ -24,58 +18,49 @@ import jiuri.com.dagger2demo.weiget.MainView;
  */
 public class MainActivity extends BaseActivity implements MainView {
     private static String TAG = "MainActivity";
-    @BindView(R.id.editext)
-    EditText mEditext;
-    @BindView(R.id.button)
-    Button mButton;
-    @BindView(R.id.text)
-    TextView mText;
-    @BindView(R.id.progress)
-    ProgressBar mProgress;
+    @BindView(R.id.title)
+    TextView mTitle;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.pager)
+    ViewPager mPager;
+    @BindView(R.id.bottombar)
+    TabLayout mTable;
 
-@Inject
-    ImplMainPresent mImplMainPresent;
-    private String mString;
-
-    @Override
-    public void initView() {
-        mButton.setText("请求深圳天气");
-    }
-
+    private int[] images={R.drawable.diary_selected,R.drawable.duanzi_selected,R.drawable.meizi_selected};
+    private String[] name={"日记","段子","妹子"};
     @Override
     public int setLayoutId() {
-        DaggerMainComponent.builder().mainModel(new MainModel(this)).build().inject(this);
         return R.layout.activity_main;
-    }
-
-
-    @OnClick(R.id.button)
-    public void onViewClicked() {
-        showProgress(mProgress);
-        mString = mEditext.getText().toString().trim();
-        mImplMainPresent.loadDate(mString);
-
-
-
-
     }
 
     @Override
     public void showTianqiDetail(String s) {
-        hideProgress(mProgress);
-        SpannableString spannableString =new SpannableString("请求"+mString+"天气 :\n"+s);
-        ForegroundColorSpan foregroundColorSpan=new ForegroundColorSpan(R.color.colorAccent);
-      //  ImageSpan image = new ImageSpan(this,R.color.colorPrimaryDark, DynamicDrawableSpan.ALIGN_BOTTOM);
-        spannableString.setSpan(foregroundColorSpan,2,3, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        mText.setText(spannableString);
+
     }
-//apkpatch.bat -f new.apk -t old.apk -o output -k mykey.jks -p zx1991 -a key0 -e zx1991
+
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mImplMainPresent.ondestory();
+    public void initView() {
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager()));
+        mTable.setupWithViewPager(mPager);
+        for (int i = 0; i < name.length; i++) {
+            if (i==0) {
+                mTable.addTab(mTable.newTab().setIcon(images[i]).setText(name[i]), true);
+            }
+           else {
+                mTable.addTab(mTable.newTab().setIcon(images[i]).setText(name[i]), false);
+            }
+        }
     }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }
 
