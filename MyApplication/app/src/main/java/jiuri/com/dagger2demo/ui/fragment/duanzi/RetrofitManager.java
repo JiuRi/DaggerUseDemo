@@ -1,4 +1,4 @@
-package jiuri.com.dagger2demo.retrofit;
+package jiuri.com.dagger2demo.ui.fragment.duanzi;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -20,6 +20,7 @@ import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
@@ -85,8 +86,9 @@ private static String TAG="RetrofitManager";
         //创建 retrofit 对象
         mRetrofit = new Retrofit.Builder().addConverterFactory(ScalarsConverterFactory.create()).
                 addCallAdapterFactory(RxJavaCallAdapterFactory.create()).
+                addConverterFactory(GsonConverterFactory.create()).
                 client(cache1.build()).
-                baseUrl(Constant.BASE_URL_TIANQI).
+                baseUrl(Constant.BASE_URL_DUANZI).
                 build();
     }
 

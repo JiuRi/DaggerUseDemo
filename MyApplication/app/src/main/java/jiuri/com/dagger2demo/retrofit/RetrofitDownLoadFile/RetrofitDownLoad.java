@@ -2,7 +2,7 @@ package jiuri.com.dagger2demo.retrofit.RetrofitDownLoadFile;
 
 import java.io.IOException;
 
-import jiuri.com.dagger2demo.api_base.Constant;
+import jiuri.com.dagger2demo.api.Constant;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

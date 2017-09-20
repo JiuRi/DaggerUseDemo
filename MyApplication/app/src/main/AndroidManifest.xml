@@ -63,9 +63,9 @@
         <activity android:name=".ui.LoginActivity">
 
         </activity>
-        <activity android:name=".ui.MainActivity2">
+        <activity android:name=".ui.MainActivity2"/>
+        <activity android:name=".ui.fragment.MeiZiDetailActivity"/>
 
-        </activity>
     </application>
 
 </manifest>

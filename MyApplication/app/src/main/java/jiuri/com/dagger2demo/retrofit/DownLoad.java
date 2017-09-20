@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import jiuri.com.dagger2demo.api_base.Constant;
+import jiuri.com.dagger2demo.api.Constant;
 import jiuri.com.dagger2demo.app.App;
 import okhttp3.Cache;
 import okhttp3.CacheControl;

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FFF9F9F9"
+             >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        >
+
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/xianjin"/>
+
+        <LinearLayout
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:text="现金侠"
+                android:textColor="#000000"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="贷款期限7～30天，每日手续费3.6元"
+                android:textColor="#FFBCBCBC"
+                android:textSize="13sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#FFE0E0E0"/>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+<LinearLayout
+    android:layout_marginLeft="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+    <ImageView
+        android:layout_gravity="center"
+        android:src="@drawable/y"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:layout_gravity="center_vertical"
+        android:text="借款金额："
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="#FF6B81E7"
+        android:text="1000～3000"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:src="@drawable/time"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_gravity="center_vertical"
+            android:text="借款期限："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="#FF6B81E7"
+            android:text="5～30天"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:background="@android:color/white"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:paddingTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="5分钟"
+                android:textColor="#FF6B81E7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:textColor="#FF707070"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="14sp"
+               android:text="放款时间"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <View
+          android:layout_marginTop="16dp"
+          android:layout_marginBottom="16dp"
+            android:background="#FFE0E0E0"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:paddingTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="0.3%"
+                android:textColor="#FF6B81E7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:textColor="#FF707070"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:text="参考日利率"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <View
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#FFE0E0E0"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:paddingTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="30%"
+                android:textColor="#FF6B81E7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:textColor="#FF707070"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:text="审核通过时间"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/holo_orange_light"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="申请条件"
+                    android:textColor="#000000"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#FFE0E0E0"/>
+
+            <TextView
+                android:textColor="#FF363636"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center_vertical"
+                android:paddingTop="5dp"
+                android:text="18-40岁中国公民"/>
+
+            <TextView
+                android:textColor="#FF363636"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:text="退休人员"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#FFE0E0E0"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/holo_orange_light"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="所需材料"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#FFE0E0E0"/>
+
+            <TextView
+                android:textColor="#FF363636"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="bottom"
+                android:paddingBottom="5dp"
+                android:text="身份证"/>
+
+            <TextView
+                android:textColor="#FF363636"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="bottom"
+                android:paddingBottom="5dp"
+                android:text="手机号使用6个月以上"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="bottom"
+                android:paddingBottom="5dp"
+                android:text="信用卡"
+                android:textColor="#FF363636"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+<View
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="20dp"/>
+    <LinearLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/white"
+            android:text="立即借钱"
+            android:background="#FF7A8CE6"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+</RelativeLayout>
